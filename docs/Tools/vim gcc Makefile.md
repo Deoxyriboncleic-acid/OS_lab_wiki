@@ -307,6 +307,40 @@ PS： 0x989680 = 10,000,000
 
 ![Untitled](vim%20gcc%20Makefile%205544bd1284b542d6bc803b704795210e/Untitled%202.png)
 
+# asm volatile的使用
+
+**`asm volatile`** 是在 C 或 C++ 程序中嵌入汇编代码的一种方式。这个指令用于告诉编译器，嵌入的汇编代码可能会产生某些不明显的副作用，因此编译器在优化代码时**不应该忽略、修改或重新排序这些汇编指令**。
+
+```c
+asm volatile("assembly code here" 
+             : "output operands"   // 输出操作数
+             : "input operands"    // 输入操作数
+             : "clobbered registers" // 受影响的寄存器列表
+            );
+```
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 5;    // 定义第一个整数
+    int b = 3;    // 定义第二个整数
+    int sum;
+
+    // 使用内嵌汇编进行加法
+    asm volatile (
+        "add %1, %2\n\t"     // 汇编指令，将 %1 和 %2 相加
+        "mov %2, %0\n\t"     // 将结果移动到 %0
+        : "=r" (sum)         // 输出操作数：'=' 表示输出，'r' 表示任意寄存器
+        : "r" (a), "r" (b)   // 输入操作数：两个 'r' 表示这两个输入都在任意寄存器中
+    );
+
+    printf("The sum of %d and %d is %d\n", a, b, sum); // 打印结果
+
+    return 0;
+}
+```
+
 # 作业
 
 1. 在命令行输入vimtutor，然后完成lab，并进行截图
@@ -354,3 +388,9 @@ sum = 9964411
 [A Primer on Memory Consistency and Cache Coherence.pdf](vim%20gcc%20Makefile%205544bd1284b542d6bc803b704795210e/A_Primer_on_Memory_Consistency_and_Cache_Coherence.pdf)
 
 [https://research.swtch.com/hwmm](https://research.swtch.com/hwmm)
+
+## 内存屏障和****volatile****
+
+内存屏障与volatile是高并发编程中比较常用的两个技术，**无锁队列**的时候就会用到这两项技术。
+
+[https://blog.csdn.net/obvious__/article/details/118653001](https://blog.csdn.net/obvious__/article/details/118653001)
