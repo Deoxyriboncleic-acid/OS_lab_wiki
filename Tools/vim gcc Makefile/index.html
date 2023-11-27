@@ -1,0 +1,1013 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="name-longming">
+      
+      
+        <link rel="canonical" href="https://cuit-tech-wiki.github.io/cuit-tech-wiki/Tools/vim%20gcc%20Makefile/">
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-7.1.1">
+    
+    
+      
+        <title>vim/Makefile/gcc - TPO Tech Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.78f4c236.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vimgccmakefile" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="TPO Tech Wiki" class="md-header__button md-logo" aria-label="TPO Tech Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TPO Tech Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              vim/Makefile/gcc
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue" type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/cuit-tech-wiki/cuit-tech-wiki" title="前往 GitHub 仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cuit-tech-wiki/cuit-tech-wiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      关于我们
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Control/PID/" class="md-tabs__link">
+        控制算法
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Filter/Filter/" class="md-tabs__link">
+        滤波算法
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Matlab/Matlab/" class="md-tabs__link">
+        数学建模
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Hardware/AD20/" class="md-tabs__link">
+        硬件设计
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Person/number1/" class="md-tabs__link">
+        3+1人物简介
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        基础工具的使用
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="TPO Tech Wiki" class="md-nav__button md-logo" aria-label="TPO Tech Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    TPO Tech Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/cuit-tech-wiki/cuit-tech-wiki" title="前往 GitHub 仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cuit-tech-wiki/cuit-tech-wiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        关于我们
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        控制算法
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="控制算法" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          控制算法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Control/PID/" class="md-nav__link">
+        PID算法及优化
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        滤波算法
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="滤波算法" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          滤波算法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Filter/Filter/" class="md-nav__link">
+        卡尔曼滤波
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Filter/HubFilter/" class="md-nav__link">
+        互补滤波
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        数学建模
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数学建模" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          数学建模
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Matlab/Matlab/" class="md-nav__link">
+        Matlab使用与安装
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        硬件设计
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="硬件设计" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          硬件设计
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hardware/AD20/" class="md-nav__link">
+        Altium Designer使用与安装
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        3+1人物简介
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="3+1人物简介" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          3+1人物简介
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Person/number1/" class="md-nav__link">
+        衡水高材生
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+      
+      <label class="md-nav__link" for="__nav_7">
+        基础工具的使用
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="基础工具的使用" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          基础工具的使用
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        vim/Makefile/gcc
+      </a>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/cuit-tech-wiki/cuit-tech-wiki/docs/Tools/vim gcc Makefile.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="vimgccmakefile">vim/gcc/Makefile</h1>
+<h1 id="vim">vim的使用</h1>
+<h2 id="vim_1">为什么选择使用vim进行编辑代码</h2>
+<h3 id="_1">效率高</h3>
+<p>Vim 的设计哲学强调使用键盘快捷键来提高编辑效率。它提供了大量的命令组合来实现快速的文本操作。</p>
+<p><strong>例子：</strong></p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int a, b;
+    char op;
+
+    printf(&quot;Enter an operation (+ or -): &quot;);
+    scanf(&quot; %c&quot;, &amp;op);
+    printf(&quot;Enter two numbers: &quot;);
+    scanf(&quot;%d %d&quot;, &amp;a, &amp;b);
+
+    if (op == '+') {
+        printf(&quot;%d + %d = %d\n&quot;, a, b, a + b);
+    } else if (op == '-') {
+        printf(&quot;%d - %d = %d\n&quot;, a, b, a - b);
+    } else {
+        printf(&quot;Invalid operation!\n&quot;);
+    }
+
+    return 0;
+}
+</code></pre>
+<p>将其a，b快速替换为num1，num2</p>
+<pre><code class="language-c">:%s/\ba\b/num1/g
+:%s/\bb\b/num2/g
+</code></pre>
+<p>这些命令会在全文中将 <strong><code>a</code></strong> 和 <strong><code>b</code></strong> 替换为 <strong><code>num1</code></strong> 和 <strong><code>num2</code></strong>，<strong><code>\b</code></strong> 表示单词边界，以确保只替换整个单词。</p>
+<p>当然可能会觉得IDE也能执行这些操作，但是vim其实还支持指令重用。（这里就不进行引申）</p>
+<h3 id="_2">轻量级且具有广泛的<strong>可用性</strong></h3>
+<p>它启动迅速，对系统资源的消耗很小。并且vim几乎存在所有的UNIX系统和类UNIX系统上。</p>
+<h3 id="_3">有强大的社区支持</h3>
+<p>vim可以支持非常多的插件，它可以让vim具有和IDE一样的使用体验（甚至更爽，毕竟键位都是自己设置的）</p>
+<h2 id="vim_2">vim的使用</h2>
+<p>vim的接口其实是一种编程语言。</p>
+<p><a href="https://missing-semester-cn.github.io/2020/editors/">计算机中缺失的一课</a>（个人认为这个教程已经可以入门了，但是下面还是提供一个快速入门）</p>
+<h3 id="vim_3">vim的模式</h3>
+<ul>
+<li><strong>正常模式</strong>：在文件中四处移动光标进行修改</li>
+<li><strong>插入模式</strong>：插入文本</li>
+<li><strong>替换模式</strong>：替换文本</li>
+<li><strong>可视化模式</strong>（一般，行，块）：选中文本块</li>
+<li><strong>命令模式</strong>：用于执行命令</li>
+</ul>
+<h2 id="_4"><strong>命令行</strong></h2>
+<p>在正常模式下键入 <code>:</code> 进入命令行模式。 在键入 <code>:</code> 后，你的光标会立即跳到屏幕下方的命令行。 这个模式有很多功能，包括打开，保存，关闭文件，以及 退出vim</p>
+<p><strong><em>*命令行</em></strong>*</p>
+<ul>
+<li><code>:q</code> 退出（关闭窗口）</li>
+<li><code>:w</code> 保存（写）</li>
+<li><code>:wq</code> 保存然后退出</li>
+<li><code>:e {文件名}</code> 打开要编辑的文件</li>
+<li><code>:ls</code> 显示打开的缓存</li>
+<li><code>:help {标题}</code> 打开帮助文档<ul>
+<li><code>:help :w</code> 打开 <code>:w</code> 命令的帮助文档</li>
+<li><code>:help w</code> 打开 <code>w</code> 移动的帮助文档</li>
+</ul>
+</li>
+</ul>
+<h2 id="_5"><strong>移动</strong></h2>
+<p>多数时候你会在正常模式下，使用移动命令在缓存中导航。在 Vim 里面移动也被称为 “名词”， 因为它们指向文字块。</p>
+<ul>
+<li>基本移动: <code>hjkl</code> （左， 下， 上， 右）</li>
+<li>词： <code>w</code> （下一个词）， <code>b</code> （词初）， <code>e</code> （词尾）</li>
+<li>行： <code>0</code> （行初）， <code>^</code> （第一个非空格字符）， <code>$</code> （行尾）</li>
+<li>屏幕： <code>H</code> （屏幕首行）， <code>M</code> （屏幕中间）， <code>L</code> （屏幕底部）</li>
+<li>翻页： <code>Ctrl-u</code> （上翻）， <code>Ctrl-d</code> （下翻）</li>
+<li>文件： <code>gg</code> （文件头）， <code>G</code> （文件尾）</li>
+<li>行数： <code>:{行数}&lt;CR&gt;</code> 或者 <code>{行数}G</code> ({行数}为行数)</li>
+<li>杂项： <code>%</code> （找到配对，比如括号或者 /<em> </em>/ 之类的注释对）</li>
+<li>查找： <code>f{字符}</code>， <code>t{字符}</code>， <code>F{字符}</code>， <code>T{字符}</code><ul>
+<li>查找/到 向前/向后 在本行的{字符}</li>
+<li><code>,</code> / <code>;</code> 用于导航匹配</li>
+</ul>
+</li>
+<li>搜索: <code>/{正则表达式}</code>, <code>n</code> / <code>N</code> 用于导航匹配</li>
+</ul>
+<h1 id="gccmakefile">GCC的使用和makefile</h1>
+<p>在下面我们将会编译两个文件</p>
+<pre><code class="language-c">gcc -o sum sum.c -g
+</code></pre>
+<ul>
+<li>-o 重命名</li>
+<li>-O0 进行O0级别的优化</li>
+<li>-O1进行O1级别的优化</li>
+<li>-O2</li>
+<li>-O3 同理</li>
+<li>-g 生成调试信息，方便使用gdb进行调试</li>
+<li>-Wall 警告全部”（Warn All），意在让编译器报告所有类型的潜在代码问题，如未使用的变量、未初始化的变量、执行不到的代码等</li>
+</ul>
+<h3 id="o0o1o2">大家将下面两个文件按照O0，O1，O2优化编译运行</h3>
+<p>这个时候我们要对这个文件进行多次的重复编译，我们在这里可以使用Makefile进行编译，如果你是一个中型或者大型程序的开发人员，你应该已经了解这个内容了</p>
+<p><strong>Makefile的使用（<a href="https://github.com/seisman/how-to-write-makefile">跟我一起写Makefile</a>）（我是通过这个手册学会的）</strong></p>
+<p>下面这个手册是我们写的简单手册</p>
+<p><strong>规则（Rules）</strong>：Makefile 中的每条规则通常有三个部分：目标、依赖和命令。</p>
+<ul>
+<li><strong>目标（Target）</strong>：通常是要生成的文件，例如可执行文件或对象文件。</li>
+<li><strong>依赖（Dependencies）</strong>：目标文件依赖的文件，通常是源代码或其他目标文件。</li>
+<li><strong>命令（Commands）</strong>：生成目标文件的实际命令，如编译命令。</li>
+</ul>
+<p>每次修改优化等级就只需要修改CFLAGS的值</p>
+<pre><code class="language-c"># 定义编译器
+CC = gcc
+
+# 定义编译选项
+CFLAGS = -Wall -g -O0
+
+# 定义目标
+all: sum
+
+# 定义如何生成最终目标
+sum: sum.o
+    $(CC) $(CFLAGS) -o sum sum.o
+
+# 定义对象文件如何从源文件生成
+sum.o: sum.c
+    $(CC) $(CFLAGS) -c sum.c
+
+# 清理编译生成的文件
+clean:
+    rm -f sum sum.o
+</code></pre>
+<p>第一个文件时sum.c</p>
+<pre><code class="language-c">#include &quot;thread.h&quot;
+
+#define N 10000000
+
+long sum = 0;
+
+void Tsum() {
+  for (int i = 0; i &lt; N; i++) {
+    sum++;
+  }
+}
+
+int main() {
+  create(Tsum);
+  create(Tsum);
+  join();
+  printf(&quot;sum = %ld\n&quot;, sum);
+}
+</code></pre>
+<p>PS：解释一下sum.c的内容，共享变量x被两个进行争夺。然后分别进行N次加法，最后使用join（）进行合并操作。</p>
+<p>其中的thread.h我们已经写好了，封装好了pthread的功能</p>
+<pre><code class="language-c">#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdatomic.h&gt;
+#include &lt;assert.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;pthread.h&gt;
+
+#define NTHREAD 64
+enum { T_FREE = 0, T_LIVE, T_DEAD, };
+struct thread {
+  int id, status;
+  pthread_t thread;
+  void (*entry)(int);
+};
+
+struct thread tpool[NTHREAD], *tptr = tpool;
+
+void *wrapper(void *arg) {
+  struct thread *thread = (struct thread *)arg;
+  thread-&gt;entry(thread-&gt;id);
+  return NULL;
+}
+
+void create(void *fn) {
+  assert(tptr - tpool &lt; NTHREAD);
+  *tptr = (struct thread) {
+    .id = tptr - tpool + 1,
+    .status = T_LIVE,
+    .entry = fn,
+  };
+  pthread_create(&amp;(tptr-&gt;thread), NULL, wrapper, tptr);
+  ++tptr;
+}
+
+void join() {
+  for (int i = 0; i &lt; NTHREAD; i++) {
+    struct thread *t = &amp;tpool[i];
+    if (t-&gt;status == T_LIVE) {
+      pthread_join(t-&gt;thread, NULL);
+      t-&gt;status = T_DEAD;
+    }
+  }
+}
+
+__attribute__((destructor)) void cleanup() {
+  join();
+}
+</code></pre>
+<h3 id="gdb">GDB调试</h3>
+<p><a href="https://csapp.cs.cmu.edu/3e/docs/gdbnotes-x86-64.pdf">CSAPP提供的GDB的简单手册</a></p>
+<p><strong>常用命令：</strong></p>
+<p><strong>程序控制:</strong></p>
+<ul>
+<li>run - 运行调试的程序</li>
+<li>break - 设置断点</li>
+<li>continue - 继续运行,直到下一个断点</li>
+<li>next - 单步执行下一行代码</li>
+<li>step - 单步调试,会进入函数内部</li>
+<li>finish - 执行完当前函数后停止</li>
+</ul>
+<p><strong>查看信息:</strong></p>
+<ul>
+<li>print - 打印变量的值</li>
+<li>bt - 显示当前的函数调用堆栈</li>
+<li>frame - 切换到指定的栈帧</li>
+<li>info b - 显示当前设置的所有断点</li>
+<li>info threads - 显示当前的线程</li>
+</ul>
+<p><strong>查看数据:</strong></p>
+<ul>
+<li>x - 检查内存地址的数据</li>
+<li>display - 持续输出表达式的值</li>
+</ul>
+<p><strong>多线程调试:</strong></p>
+<ul>
+<li>thread - 切换当前调试线程</li>
+<li>info threads - 显示所有线程信息</li>
+</ul>
+<p><strong>其它常用:</strong></p>
+<ul>
+<li>quit - 退出GDB</li>
+<li>set - 更改GDB设置</li>
+<li>help - 查看命令帮助、文档</li>
+</ul>
+<p>通过对代码执行的观察，可以发现一个有趣的现象</p>
+<p><strong>使用O0优化的代码的值时介于N到2N之间</strong></p>
+<p><strong>使用O1优化的代码的值为N</strong></p>
+<p><strong>而O2优化的代码的值为2N</strong></p>
+<p>对于这个预料之外的结果我们对其使用gdb进行反汇编</p>
+<p>O0经过分析发现就是最普通的代码，编译器没有进行任何层面的优化。</p>
+<p>并且汇编指令的执行没有<strong>原子性</strong>，对一个共享变量进行访问，肯定会产生错误的结果</p>
+<p><img alt="Untitled" src="../vim%20gcc%20Makefile%205544bd1284b542d6bc803b704795210e/Untitled.png" /></p>
+<p>O1的代码就比较巧妙了，编译器使用了寄存器来加速变量的访问，其中产生问题的代码来自<strong>&lt;+34&gt;</strong>这一行</p>
+<p>编译器创建了一个<strong>使用寄存器临时变量，来替换位于位于内存上的全局变量</strong></p>
+<p>最后的时候将这个变量的值cover全局变量的值</p>
+<p>两个进程分别在自己的临时变量计算sum值最后都为N，然后替换两个全局变量，所以值恒定为N</p>
+<p><img alt="Untitled" src="../vim%20gcc%20Makefile%205544bd1284b542d6bc803b704795210e/Untitled%201.png" /></p>
+<p>O2的方法就更加简单了，直接就选择了<strong>循环合并</strong></p>
+<p>并且这个方法使得这个汇编具有了<strong>原子性</strong>，导致了最后的代码的正确性</p>
+<p>（这是一个优化理论中很重要的方法）（有些过于复杂的代码不一定进行这样的全局合并，但是增加代码的步距也能起到很好的效果）（很多时候是减少了cache miss）</p>
+<p>PS： 0x989680 = 10,000,000</p>
+<p><img alt="Untitled" src="../vim%20gcc%20Makefile%205544bd1284b542d6bc803b704795210e/Untitled%202.png" /></p>
+<h1 id="_6">作业</h1>
+<ol>
+<li>在命令行输入vimtutor，然后完成lab，并进行截图</li>
+<li>用C语言写一个1+2+3+……+10的程序，并且使用Makefile在O0情况下编译，并且使用gdb进行调试，在循环出增添变量，查看sum值得变换，并进行截图（需要截取到n = 3）</li>
+</ol>
+<h1 id="_7">拓展补充</h1>
+<h2 id="sum">关于SUM的那个问题的额外解释</h2>
+<p>现代的操作系统的结构远远超出了课本的知识范围,所以有些时候为了保证严谨性我需要提供给大家一些课外的知识。</p>
+<h3 id="o0sumn">在<strong>O0优化</strong>的情况下，一定<strong>sum的值就大于等于N</strong>吗？</h3>
+<p>答案是否定的，让我们来做一个小小的测试（如果无法观测，就提高i的循环次数）</p>
+<pre><code class="language-c">#!/bin/bash
+
+for i in {1..100000}; do
+    result=$(./sum)  # 执行程序并捕获输出
+    number=$(echo $result | awk '{print $3}')  # 解析输出中的数值
+
+    if (( number &lt; 10000000 )); then
+        echo $result &gt;&gt; a.log  # 如果小于10000000，则写入文件
+    fi
+done
+</code></pre>
+<p>脚本没有运行结束，我们就已经发现a.log中有输出了，这时候就可以停止脚本了</p>
+<pre><code class="language-c">sum = 9603079
+sum = 9863297
+sum = 9964411
+</code></pre>
+<p>这个问题的具体答案我也不知道，个人直觉是在内存一致性和缓存一致性上，或者是宽松内存模型，反正最后是在内存的角度来考虑，但是当让可以从调度层面考虑。</p>
+<p>希望有大佬来解决我的疑惑</p>
+<p>下面的第一篇文章是关于内存一致性和缓存一致性的</p>
+<p>第二篇为X86的宽松内存模型 </p>
+<p><a href="../vim%20gcc%20Makefile%205544bd1284b542d6bc803b704795210e/A_Primer_on_Memory_Consistency_and_Cache_Coherence.pdf">A Primer on Memory Consistency and Cache Coherence.pdf</a></p>
+<p><a href="https://research.swtch.com/hwmm">https://research.swtch.com/hwmm</a></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../../Person/number1/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              衡水高材生
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top"], "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "Missing"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4ea5477f.min.js"></script>
+      
+    
+  </body>
+</html>
