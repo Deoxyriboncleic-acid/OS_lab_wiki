@@ -1,26 +1,19 @@
 site_name: SXU OS Wiki
 site_url: https://sxu-os-wiki.github.io
-site_author: name-longming
+site_author: wqy
 # Repository
 repo_name: Deoxyriboncleic-acid/OS_lab_wiki
 repo_url: https://github.com/Deoxyriboncleic-acid/OS_lab_wiki
 edit_uri: docs
 
 nav:
-  - 关于我们: index.md
-  - 控制算法: 
-      PID算法及优化: Control/PID.md  
-  - 滤波算法:
-      卡尔曼滤波: Filter/Filter.md
-      互补滤波: Filter/HubFilter.md
-  - 数学建模:
-      Matlab使用与安装: Matlab/Matlab.md
-  - 硬件设计:
-      Altium Designer使用与安装: Hardware/AD20.md
-  - 3+1人物简介:
-      衡水高材生: Person/number1.md
   - 基础工具的使用:
+      基础命令 : 基础命令.md
+      git : Tools/Git lab.md
+      管道和重定向 : 管道 & 重定向.md
       vim/Makefile/gcc : Tools/vim gcc Makefile.md
+  - LAB:
+      操作系统实验模板 : 操作系统实验报告模板.md
       
 theme:
   name: null
