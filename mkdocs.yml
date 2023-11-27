@@ -8,12 +8,12 @@ edit_uri: docs
 
 nav:
   - 基础工具的使用:
-      基础命令 : 基础命令.md
+      基础命令 : Tools/基础命令.md
       git : Tools/Git lab.md
-      管道和重定向 : 管道 & 重定向.md
+      管道和重定向 : Tools/管道 & 重定向.md
       vim/Makefile/gcc : Tools/vim gcc Makefile.md
   - LAB:
-      操作系统实验模板 : 操作系统实验报告模板.md
+      操作系统实验模板 : Tools/操作系统实验报告模板.md
       
 theme:
   name: null
