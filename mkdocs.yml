@@ -1,9 +1,9 @@
-site_name: TPO Tech Wiki
-site_url: https://sxu-os-tech-wiki.github.io
+site_name: SXU OS Wiki
+site_url: https://sxu-os-wiki.github.io
 site_author: name-longming
 # Repository
-repo_name: cuit-tech-wiki/cuit-tech-wiki
-repo_url: https://github.com/cuit-tech-wiki/cuit-tech-wiki
+repo_name: Deoxyriboncleic-acid/OS_lab_wiki
+repo_url: https://github.com/Deoxyriboncleic-acid/OS_lab_wiki
 edit_uri: docs
 
 nav:

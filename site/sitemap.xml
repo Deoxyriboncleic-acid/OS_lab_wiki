@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://sxu-os-tech-wiki.github.io/</loc>
+         <loc>https://sxu-os-wiki.github.io/</loc>
          <lastmod>2023-11-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sxu-os-tech-wiki.github.io/Control/PID/</loc>
+         <loc>https://sxu-os-wiki.github.io/Control/PID/</loc>
          <lastmod>2023-11-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sxu-os-tech-wiki.github.io/Filter/Filter/</loc>
+         <loc>https://sxu-os-wiki.github.io/Filter/Filter/</loc>
          <lastmod>2023-11-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sxu-os-tech-wiki.github.io/Filter/HubFilter/</loc>
+         <loc>https://sxu-os-wiki.github.io/Filter/HubFilter/</loc>
          <lastmod>2023-11-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sxu-os-tech-wiki.github.io/Hardware/AD20/</loc>
+         <loc>https://sxu-os-wiki.github.io/Hardware/AD20/</loc>
          <lastmod>2023-11-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sxu-os-tech-wiki.github.io/Matlab/Matlab/</loc>
+         <loc>https://sxu-os-wiki.github.io/Matlab/Matlab/</loc>
          <lastmod>2023-11-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sxu-os-tech-wiki.github.io/Person/number1/</loc>
+         <loc>https://sxu-os-wiki.github.io/Person/number1/</loc>
          <lastmod>2023-11-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sxu-os-tech-wiki.github.io/Tools/vim%20gcc%20Makefile/</loc>
+         <loc>https://sxu-os-wiki.github.io/Tools/vim%20gcc%20Makefile/</loc>
          <lastmod>2023-11-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
