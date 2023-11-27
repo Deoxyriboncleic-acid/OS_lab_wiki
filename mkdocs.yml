@@ -19,6 +19,8 @@ nav:
       Altium Designer使用与安装: Hardware/AD20.md
   - 3+1人物简介:
       衡水高材生: Person/number1.md
+  - 基础工具的使用:
+      vim/Makefile/gcc : Tools/vim gcc Makefile.md
       
 theme:
   name: null
