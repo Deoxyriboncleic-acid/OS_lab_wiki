@@ -1,0 +1,66 @@
+site_name: TPO Tech Wiki
+site_url: https://cuit-tech-wiki.github.io/cuit-tech-wiki/
+site_author: name-longming
+# Repository
+repo_name: cuit-tech-wiki/cuit-tech-wiki
+repo_url: https://github.com/cuit-tech-wiki/cuit-tech-wiki
+edit_uri: docs
+
+nav:
+  - 关于我们: index.md
+  - 控制算法: 
+      PID算法及优化: Control/PID.md  
+  - 滤波算法:
+      卡尔曼滤波: Filter/Filter.md
+      互补滤波: Filter/HubFilter.md
+  - 数学建模:
+      Matlab使用与安装: Matlab/Matlab.md
+  - 硬件设计:
+      Altium Designer使用与安装: Hardware/AD20.md
+  - 3+1人物简介:
+      衡水高材生: Person/number1.md
+      
+theme:
+  name: null
+  custom_dir: mkdocs-material/material
+
+  # 404 page
+  static_templates:
+    - 404.html
+
+  # Necessary for search to work properly
+  include_search_page: false
+  search_index_only: true
+
+  # Default values, taken from mkdocs_theme.yml
+  language: zh
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png
+  icon:
+    logo: material/library
+
+  features:
+    - navigation.tabs
+    - navigation.top
+
+  palette:
+    
+    # Light mode
+    - blue: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
