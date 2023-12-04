@@ -1,0 +1,832 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="wqy">
+      
+      
+        <link rel="canonical" href="https://sxu-os-wiki.github.io/Lab2/Lab2/">
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-7.1.1">
+    
+    
+      
+        <title>操作系统的启动 - SXU OS Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.78f4c236.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab2" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="SXU OS Wiki" class="md-header__button md-logo" aria-label="SXU OS Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SXU OS Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              操作系统的启动
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue" type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/Deoxyriboncleic-acid/OS_lab_wiki" title="前往 GitHub 仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Deoxyriboncleic-acid/OS_lab_wiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Tools/base/" class="md-tabs__link">
+        基础工具的使用
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        操作系统的启动
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Tools/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A%E6%A8%A1%E6%9D%BF/" class="md-tabs__link">
+        LAB
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SXU OS Wiki" class="md-nav__button md-logo" aria-label="SXU OS Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    SXU OS Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/Deoxyriboncleic-acid/OS_lab_wiki" title="前往 GitHub 仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Deoxyriboncleic-acid/OS_lab_wiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      <label class="md-nav__link" for="__nav_1">
+        基础工具的使用
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="基础工具的使用" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          基础工具的使用
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/base/" class="md-nav__link">
+        基础命令
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/Git%20lab/" class="md-nav__link">
+        git
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/%E7%AE%A1%E9%81%93%20%26%20%E9%87%8D%E5%AE%9A%E5%90%91/" class="md-nav__link">
+        管道和重定向
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/vim%20gcc%20Makefile/" class="md-nav__link">
+        vim/Makefile/gcc
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        操作系统的启动
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="操作系统的启动" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          操作系统的启动
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        操作系统的启动
+      </a>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        LAB
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="LAB" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          LAB
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A%E6%A8%A1%E6%9D%BF/" class="md-nav__link">
+        操作系统实验模板
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Deoxyriboncleic-acid/OS_lab_wiki/docs/Lab2/Lab2.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="lab2">Lab2</h1>
+<p>我们会在Lab2中实现一个真实的操作系统内核的调试，我们采用的是<code>[xv6-public](https://github.com/mit-pdos/xv6-public)</code>的代码</p>
+<h1 id="_1">预备知识（工具篇）</h1>
+<p>需要编译这个操作系统内核，我们需要了解一些qemu和一些关于link的知识。</p>
+<h2 id="qemuqemu-system-i386">qemu（我们采用的版本是qemu-system-i386）</h2>
+<p>QEMU是一款开源的硬件虚拟化软件，它允许用户在单个物理机器上创建和运行多个虚拟机（VM）。它可以模拟各种硬件平台，为运行不同操作系统和应用程序提供一个隔离的VM环境。QEMU被广泛用于开发和测试，同时也用于生产环境中部署虚拟服务器。</p>
+<p>PS：就是一个提供硬件虚拟化的软件和VMware之类的相同，个人没研究过VMware的全部功能。不知道能不能支持numa</p>
+<p>下面请自行阅读Makefile，对于不知道的参数使用<code>man</code>指令来进行阅读。</p>
+<p>下面的代码提供了一个操作系统的多种启动方式</p>
+<pre><code class="language-jsx">qemu: fs.img xv6.img
+    $(QEMU) -serial mon:stdio $(QEMUOPTS)
+
+qemu-memfs: xv6memfs.img
+    $(QEMU) -drive file=xv6memfs.img,index=0,media=disk,format=raw -smp $(CPUS) -m 256
+
+qemu-nox: fs.img xv6.img
+    $(QEMU) -nographic $(QEMUOPTS)
+
+.gdbinit: .gdbinit.tmpl
+    sed &quot;s/localhost:1234/localhost:$(GDBPORT)/&quot; &lt; $^ &gt; $@
+
+qemu-gdb: fs.img xv6.img .gdbinit
+    @echo &quot;*** Now run 'gdb'.&quot; 1&gt;&amp;2
+    $(QEMU) -serial mon:stdio $(QEMUOPTS) -S $(QEMUGDB)
+
+qemu-nox-gdb: fs.img xv6.img .gdbinit
+    @echo &quot;*** Now run 'gdb'.&quot; 1&gt;&amp;2
+    $(QEMU) -nographic $(QEMUOPTS) -S $(QEMUGDB)
+</code></pre>
+<h2 id="gdbinitchatgpt">使用.gdbinit（建议掌握）（这一段是ChatGPT生成的）</h2>
+<p>PS：如果不使用.gdbinit，调试的枯燥程度很难想象的</p>
+<p><code>gdb</code> 提供了一种机制来自动加载预定义的命令，这通常通过一个名为 <code>.gdbinit</code> 的文件完成。当 <code>gdb</code> 启动时，它会在当前目录下查找 <code>.gdbinit</code> 文件，并执行其中的命令。这对于设置调试会话的环境非常有用，比如定义自定义命令、设置断点或配置显示选项等。</p>
+<h3 id="_2">用法示例</h3>
+<p>下面是一个 <code>.gdbinit</code> 文件的简单示例：</p>
+<pre><code># .gdbinit
+# 设置断点
+break main
+
+# 设置调试格式
+set print pretty
+
+# 定义自定义命令
+define hello
+  echo Hello, GDB!\\n
+end
+
+</code></pre>
+<p>在上述示例中：</p>
+<ul>
+<li><code>break main</code>: 在 <code>main</code> 函数上设置一个断点。</li>
+<li><code>set print pretty</code>: 设置打印输出格式为“pretty”，以便更易于阅读。</li>
+<li><code>define ... end</code>: 定义一个自定义命令，这里定义了一个名为 <code>hello</code> 的命令，它将输出 "Hello, GDB!"。</li>
+</ul>
+<h3 id="_3">注意</h3>
+<ul>
+<li>出于安全原因，<code>gdb</code> 默认不会自动加载当前目录中的 <code>.gdbinit</code> 文件。要允许加载，请在 <code>/home/&lt;your_name&gt;/.config/gdb/gdbinit</code> 中添加<code>add-auto-load-safe-path /your/safe/path</code>，其中 <code>/your/safe/path</code> 是你的项目目录或其他安全路径。</li>
+</ul>
+<h3 id="_4">更多命令和用法</h3>
+<ul>
+<li><code>run</code>: 带参数启动你的程序。</li>
+<li><code>info registers</code>: 显示寄存器的当前状态。</li>
+<li><code>x/...</code>: 用于内存检查。</li>
+<li><code>bt</code>: 显示调用堆栈。</li>
+</ul>
+<h3 id="gdbinit">使用 <code>.gdbinit</code> 的优点</h3>
+<ol>
+<li><strong>自动设置</strong>：可以自动设置断点、监视点等。</li>
+<li><strong>环境配置</strong>：可以预先定义一些格式和显示的配置。</li>
+<li><strong>自定义命令</strong>：可以创建自定义命令以简化复杂的调试流程。</li>
+</ol>
+<p>通过合理利用 <code>.gdbinit</code>，你可以提高调试的效率和准确性，特别是在复杂项目中。你可以将常用的命令和设置放在 <code>.gdbinit</code> 文件中，这样在每次启动 <code>gdb</code> 时都会自动加载这些预定义的设置和命令，省去了手动设置的麻烦。</p>
+<h1 id="_5">预备知识（知识篇）</h1>
+<h2 id="gccld">编译过程（结合gcc指令的介绍）（在这里我们着重讨论的是ld的过程）</h2>
+<ol>
+<li><strong>预处理（Preprocessing）</strong>:<ul>
+<li>在GCC中，预处理步骤可以通过 <code>E</code> 标志单独执行。</li>
+<li>命令示例：<code>gcc -E source.c</code>。</li>
+<li>这将只执行预处理步骤，处理如<code>#include</code>、<code>#define</code>等指令，并输出扩展的源代码。</li>
+</ul>
+</li>
+<li><strong>编译（Compilation）</strong>:<ul>
+<li>编译步骤将预处理后的代码转换为汇编代码。</li>
+<li>在GCC中，这可以通过 <code>S</code> 标志来执行。</li>
+<li>命令示例：<code>gcc -S source.c</code>。</li>
+<li>这将生成一个汇编文件（通常是<code>.s</code>扩展名）。</li>
+</ul>
+</li>
+<li><strong>汇编（Assembly）</strong>:<ul>
+<li>GCC将汇编代码转换为机器代码（目标文件）。</li>
+<li>通常这一步是自动进行的，但也可以单独执行。</li>
+<li>命令示例：<code>gcc -c source.s</code>，这将生成一个目标文件（<code>.o</code>扩展名）。</li>
+</ul>
+</li>
+<li><strong>链接（Linking）</strong>:<ul>
+<li>最后，GCC的链接器（通常是<code>ld</code>）将一个或多个目标文件与所需的库文件链接在一起，生成可执行文件。</li>
+<li>命令示例：<code>gcc source.o -o program</code>。</li>
+<li>这里，<code>source.o</code>是目标文件，<code>program</code>是最终生成的可执行文件。</li>
+</ul>
+</li>
+</ol>
+<p>综合命令:</p>
+<ul>
+<li>通常，上述步骤可以通过单个GCC命令一次性完成：<code>gcc source.c -o program</code>。</li>
+<li>这个命令将执行全部的编译步骤：预处理、编译、汇编和链接，最终生成名为<code>program</code>的可执行文件。</li>
+</ul>
+<p>GCC还有许多其他选项和功能，例如优化选项（如<code>-O2</code>）、调试信息生成（如<code>-g</code>）等，可以根据具体需求进行选择和使用。</p>
+<h3 id="_6">链接器脚本</h3>
+<p><a href="https://ftp.gnu.org/old-gnu/Manuals/ld-2.9.1/html_chapter/ld_3.html">GNU手册</a></p>
+<p>链接器脚本定义了程序的内存布局，指定了不同段（如文本段、数据段、bss段等）在可执行文件中的位置和地址。这对于操作系统这样需要精确控制内存布局的程序来说<strong>非常重要</strong>。</p>
+<p>下面的代码也正好能说明2G user + 2G kernel的分配</p>
+<p>我们会在后面的例子中分析xv6的链接器脚本（<strong>kernel.ld</strong>）</p>
+<pre><code class="language-c">/* Simple linker script for the JOS kernel.
+   See the GNU ld 'info' manual (&quot;info ld&quot;) to learn the syntax. */
+
+OUTPUT_FORMAT(&quot;elf32-i386&quot;, &quot;elf32-i386&quot;, &quot;elf32-i386&quot;)
+OUTPUT_ARCH(i386)
+ENTRY(_start)
+
+SECTIONS
+{
+    /* Link the kernel at this address: &quot;.&quot; means the current address */
+        /* Must be equal to KERNLINK */
+    . = 0x80100000;
+
+    .text : AT(0x100000) {
+        *(.text .stub .text.* .gnu.linkonce.t.*)
+    }
+
+    PROVIDE(etext = .); /* Define the 'etext' symbol to this value */
+
+    .rodata : {
+        *(.rodata .rodata.* .gnu.linkonce.r.*)
+    }
+
+    /* Include debugging information in kernel memory */
+    .stab : {
+        PROVIDE(__STAB_BEGIN__ = .);
+        *(.stab);
+        PROVIDE(__STAB_END__ = .);
+    }
+
+    .stabstr : {
+        PROVIDE(__STABSTR_BEGIN__ = .);
+        *(.stabstr);
+        PROVIDE(__STABSTR_END__ = .);
+    }
+
+    /* Adjust the address for the data segment to the next page */
+    . = ALIGN(0x1000);
+
+    /* Conventionally, Unix linkers provide pseudo-symbols
+     * etext, edata, and end, at the end of the text, data, and bss.
+     * For the kernel mapping, we need the address at the beginning
+     * of the data section, but that's not one of the conventional
+     * symbols, because the convention started before there was a
+     * read-only rodata section between text and data. */
+    PROVIDE(data = .);
+
+    /* The data segment */
+    .data : {
+        *(.data)
+    }
+
+    PROVIDE(edata = .);
+
+    .bss : {
+        *(.bss)
+    }
+
+    PROVIDE(end = .);
+
+    /DISCARD/ : {
+        *(.eh_frame .note.GNU-stack)
+    }
+}
+</code></pre>
+<h1 id="_7">启动调试</h1>
+<h2 id="_8">启动的分类</h2>
+<ul>
+<li><strong>冷启动</strong>，是指计算机在关机状态下按 POWER 键启动，又叫硬件启动，比如开机，这种启动方式在启动之前计算机处于断电状态，像内存这种需要加电维持的存储部件里面的内容都丢失了，加电开机那一刻里面的值都是随机的，操作系统会对其进行初始化。</li>
+<li><strong>热启动</strong>是在加电的情况下启动，又叫软件启动，比如重启，这种启动方式在启动之前和启动之后电没断过，内存等存储部件里面的值不会改变，但毕竟是启动过程，操作系统会对其进行初始化。</li>
+<li>PS：不知道大家有没有遇到电脑卡死的情况，这种情况下一般不是长按开机键，进行reset。在世纪初左右的电脑，reset键和开机键是分开的。</li>
+</ul>
+<h1 id="bios-mbr-bootloader-os-multiprocessor"><strong>BIOS-&gt;MBR-&gt;Bootloader-&gt;OS-&gt;Multiprocessor</strong></h1>
+<p>在这引入启动的过程，然后我们正式开始实验，我们这里不考虑多核启动的问题</p>
+<h3 id="_9">编译运行</h3>
+<p>建议先把CPU数设置为1，然后进行调试，简化启动流程。当然可以在Makefile中进行修改（<strong>建议修改<code>Makefile</code>减少后续的操作</strong>）</p>
+<pre><code class="language-c">make 
+make qemu
+make CPU=1 qemu-gdb 
+</code></pre>
+<h3 id="_10">如何启动调试</h3>
+<p>在一个窗口中输入<code>make qemu-gdb</code>，另外一个相同目录下的窗口中启动<code>gdb</code>即可。</p>
+<h3 id="_11">手册的重要性</h3>
+<p>PS：RTFM，STFW</p>
+<p>手册规定了计算机所有可能的行为，计算机永远不会错，所以当我们想要学习这种人定的机器时，我们应该使用手册。</p>
+<p>如果大家在后面的实验中遇到了问题，应该积极的RTFM和STFW</p>
+<p><strong>Intel® 64 and IA-32 Architectures Software Developer’s Manual</strong></p>
+<p><a href="../Lab2%207b46a09ca2ce4fc1a0dd8eaceaf5b97c/intel_32%25E4%25BD%258D%25E5%2592%258C64%25E4%25BD%258D%25E5%25BC%2580%25E5%258F%2591%25E6%2589%258B%25E5%2586%258C.pdf">intel 32位和64位开发手册.pdf</a></p>
+<h3 id="_12">理论过程</h3>
+<p><img alt="Untitled" src="../Lab2%207b46a09ca2ce4fc1a0dd8eaceaf5b97c/Untitled.png" /></p>
+<p><strong>BIOS的作用：</strong></p>
+<ul>
+<li><strong>将硬盘(通常引导设备就是硬盘)最开始那个扇区 MBR 加载到0x7c00</strong></li>
+<li>自检，然后对一些硬件设备做简单的初始化</li>
+<li>构建中断向量表加载中断服务程序</li>
+</ul>
+<p><strong>MBR的作用：</strong></p>
+<p><strong>MBR 的代码在分区表中寻找可以引导存在操作系统的分区，也就是寻找标记为 0x80 的活动分区，然后加载该活动分区的引导块，再执行其中的操作系统引导程序 Bootloader</strong>。</p>
+<p><strong>Bootloader的作用：</strong></p>
+<p><strong>主要作用就是将操作系统加载到内存里面</strong>。<strong>操作系统也是一个程序，需要加载到内存里面才能运行</strong></p>
+<p>还做了一些其他事情，比如进入保护模式，开启分页机制，建立内存的映射等等</p>
+<p><strong>OS的作用：</strong></p>
+<p>操作系统内核加载到内存之后，就做一些初始化工作建立好工作环境，比如各个硬件的初始化，重新设置 GDT，IDT 等等初始的操作。初始化启动其他处理器(如果有多个处理器的话)。这里不细说，也不好叙述。</p>
+<p><strong>Multiprocessor：（拓展知识）</strong></p>
+<p><strong>先启动一个 CPU，用它作为基础启动其他的处理器</strong>。<strong>先启动的这个 CPU 称作 BSP(BootStrap Processor)，其他处理器叫做 AP(Application Processor)</strong>。</p>
+<h2 id="bios">BIOS</h2>
+<p>在启动的瞬间就会完成CS和IP的初始化：<strong>CS = 0xf000, IP = 0xfff0</strong></p>
+<p>操作系统在开机时处于<strong>实地址模式</strong></p>
+<p>刚启动的时候计算机处于实模式，实模式地址下总线只用了20位，只有<strong>2^20=1M</strong>的寻址空间，换句话说只用了内存的低1M，这时候分页机制还没建立，<strong>CPU就是运行在实际的物理地址</strong>上。（实模式）</p>
+<p><strong>如何访问实地址模式下的内存：</strong></p>
+<p>在实模式下，物理地址（即实际RAM中的地址）是通过将<strong><code>CS</code></strong>左移4位（或者说乘以16）并与<strong><code>IP</code></strong>相加来计算的。下面是计算公式：</p>
+<p><strong>Physical Address=CS * 16+ IP</strong></p>
+<p>根据<strong>CS = 0xf000, IP = 0xfff0</strong>，可以得到</p>
+<p><strong>address =0xf000 &lt;&lt; 4 + 0xfff0=0xffff0</strong></p>
+<p><img alt="Untitled" src="../Lab2%207b46a09ca2ce4fc1a0dd8eaceaf5b97c/Untitled%201.png" /></p>
+<p><strong>LAB1：</strong></p>
+<p><strong>使用gdb来查看0xffff0的语句是什么？并且说明BIOS在内存中的位置。</strong></p>
+<h3 id="mbr">MBR过程</h3>
+<p><strong>介绍：</strong>MBR（Master Boot Record）是位于存储设备（如硬盘或SSD）最开始部分的一个特殊区域，具有重要的启动和分区表信息。MBR的大小通常为512字节。</p>
+<p>bootasm.S 和 bootmain.c 两文件联合在一起<strong>编译成二进制文件 bootblock 放在磁盘最开始的那个扇区</strong>，然后被 BIOS 加载到0x7c00处，从0x7c00处开始执行。</p>
+<p>使用file指令查看文件的属性</p>
+<pre><code class="language-c">file bootblock
+bootblock: DOS/MBR boot sector
+</code></pre>
+<p>查看Makefile</p>
+<pre><code class="language-c">bootblock: bootasm.S bootmain.c
+    $(CC) $(CFLAGS) -fno-pic -O -nostdinc -I. -c bootmain.c
+    $(CC) $(CFLAGS) -fno-pic -nostdinc -I. -c bootas1m.S
+    $(LD) $(LDFLAGS) -N -e start **-Ttext 0x7C00** -o bootblock.o bootasm.o bootmain.o
+    $(OBJDUMP) -S bootblock.o &gt; bootblock.asm
+    $(OBJCOPY) -S -O binary -j .text bootblock.o bootblock
+    ./sign.pl bootblock
+</code></pre>
+<p>PS：这里我就不多做解释了，如果感兴趣，我会给出一个相似的实验，<strong>写一个能直接再硬件上运行的程序（拓展补充）</strong></p>
+<p><strong>LAB2：</strong></p>
+<p><strong>使用gdb进行内存追踪，来查看具体是BIOS的哪一段代码加载了MBR。</strong></p>
+<p><strong>LAB3：</strong></p>
+<p><strong>阅读bootasm.S，给出A20线如何开启</strong></p>
+<p><strong>给出操作系统如何切换到保护模式</strong></p>
+<h1 id="_13">拓展补充</h1>
+<p><a href="https://www.zhihu.com/question/21672895">BIOS VS UEFI</a></p>
+<p><strong>写一个能直接再硬件上运行的程序（拓展补充）</strong></p>
+<h1 id="_14">实验任务</h1>
+<p><strong>要求：</strong></p>
+<p><strong>需要有自己信息的截图，gdb需要输出自定义字符串（带学号和姓名），需要高亮关键调试信息并进行解释</strong></p>
+<pre><code class="language-c">(gdb) printf &quot;学号-姓名&quot;
+</code></pre>
+<p><strong>关于2-3需要给出详细解释，具体到函数层面。（解释每个代码段的功能）</strong></p>
+<p><strong>2-1 LAB：</strong></p>
+<p><strong>使用gdb来查看地址0xffff0的语句是什么？并且说明BIOS在内存中的位置。</strong> </p>
+<p><strong>2-2 LAB：</strong></p>
+<p><strong>使用gdb进行内存追踪，来查看具体是BIOS的哪一段代码加载了MBR。</strong></p>
+<p><strong>2-3 LAB：</strong></p>
+<p><strong>阅读bootasm.S，给出A20线如何开启</strong></p>
+<p><strong>给出操作系统如何切换到保护模式的，结合代码说明，最好能结合手册说明。</strong></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../../Tools/vim%20gcc%20Makefile/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              vim/Makefile/gcc
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../../Tools/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A%E6%A8%A1%E6%9D%BF/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              操作系统实验模板
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top"], "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "Missing"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4ea5477f.min.js"></script>
+      
+    
+  </body>
+</html>
