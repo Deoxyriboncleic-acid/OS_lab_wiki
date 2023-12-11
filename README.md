@@ -36,7 +36,7 @@ mkdocs build
 mkdocs gh-deploy --force
 git add .
 git commit -m "描述"
-git push origin master
+git push origin main
 ```
 
 
