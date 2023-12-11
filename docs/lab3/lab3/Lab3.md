@@ -1,6 +1,6 @@
 # Lab3：内存管理
 
-[toc]
+
 
 <p align="right">
   编辑设计：封裕轩 
