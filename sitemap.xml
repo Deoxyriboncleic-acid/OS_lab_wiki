@@ -2,37 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://sxu-os-wiki.github.io/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sxu-os-wiki.github.io/Lab2/Lab2/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sxu-os-wiki.github.io/Tools/Git%20lab/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sxu-os-wiki.github.io/Tools/base/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sxu-os-wiki.github.io/Tools/vim%20gcc%20Makefile/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sxu-os-wiki.github.io/Tools/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A%E6%A8%A1%E6%9D%BF/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sxu-os-wiki.github.io/Tools/%E7%AE%A1%E9%81%93%20%26%20%E9%87%8D%E5%AE%9A%E5%90%91/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sxu-os-wiki.github.io/lab3/lab3/Lab3/</loc>
+         <lastmod>2023-12-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
