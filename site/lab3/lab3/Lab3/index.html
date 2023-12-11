@@ -1,0 +1,1184 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="wqy">
+      
+      
+        <link rel="canonical" href="https://sxu-os-wiki.github.io/lab3/lab3/Lab3/">
+      
+      <link rel="icon" href="../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-7.1.1">
+    
+    
+      
+        <title>LAB3 - SXU OS Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.78f4c236.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab3" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="SXU OS Wiki" class="md-header__button md-logo" aria-label="SXU OS Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SXU OS Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LAB3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue" type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/Deoxyriboncleic-acid/OS_lab_wiki" title="前往 GitHub 仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Deoxyriboncleic-acid/OS_lab_wiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Tools/base/" class="md-tabs__link">
+        基础工具的使用
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Lab2/Lab2/" class="md-tabs__link">
+        操作系统的启动
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        xv6内存管理
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Tools/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A%E6%A8%A1%E6%9D%BF/" class="md-tabs__link">
+        LAB
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="SXU OS Wiki" class="md-nav__button md-logo" aria-label="SXU OS Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    SXU OS Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/Deoxyriboncleic-acid/OS_lab_wiki" title="前往 GitHub 仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Deoxyriboncleic-acid/OS_lab_wiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      <label class="md-nav__link" for="__nav_1">
+        基础工具的使用
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="基础工具的使用" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          基础工具的使用
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tools/base/" class="md-nav__link">
+        基础命令
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tools/Git%20lab/" class="md-nav__link">
+        git
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tools/%E7%AE%A1%E9%81%93%20%26%20%E9%87%8D%E5%AE%9A%E5%90%91/" class="md-nav__link">
+        管道和重定向
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tools/vim%20gcc%20Makefile/" class="md-nav__link">
+        vim/Makefile/gcc
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        操作系统的启动
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="操作系统的启动" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          操作系统的启动
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Lab2/Lab2/" class="md-nav__link">
+        操作系统的启动
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        xv6内存管理
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="xv6内存管理" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          xv6内存管理
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          LAB3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        LAB3
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    实验目的
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    实验环境
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    前导知识
+  </a>
+  
+    <nav class="md-nav" aria-label="前导知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xv6" class="md-nav__link">
+    一、xv6的内核加载过程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xv6_1" class="md-nav__link">
+    二、xv6页表的基本原理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    三、快表机制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    四、重要文件及函数
+  </a>
+  
+    <nav class="md-nav" aria-label="四、重要文件及函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-bootmainc" class="md-nav__link">
+    1. bootmain.c
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-entrys" class="md-nav__link">
+    2. entry.S 汇编代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    内核加载完的物理内存布局
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-mainc-kvmalloc" class="md-nav__link">
+    3. main.c — kvmalloc()函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-setupkvm" class="md-nav__link">
+    4. setupkvm函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-switchkvm" class="md-nav__link">
+    5. switchkvm函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    实验内容
+  </a>
+  
+    <nav class="md-nav" aria-label="实验内容">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ex3-1" class="md-nav__link">
+    Ex3-1: 页表的创建过程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ex3-2-xv6" class="md-nav__link">
+    Ex3-2: 理解xv6中的内存布局
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ex3-3" class="md-nav__link">
+    Ex3-3: 内存分配
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        LAB
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="LAB" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          LAB
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tools/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A%E6%A8%A1%E6%9D%BF/" class="md-nav__link">
+        操作系统实验模板
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    实验目的
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    实验环境
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    前导知识
+  </a>
+  
+    <nav class="md-nav" aria-label="前导知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xv6" class="md-nav__link">
+    一、xv6的内核加载过程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xv6_1" class="md-nav__link">
+    二、xv6页表的基本原理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    三、快表机制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    四、重要文件及函数
+  </a>
+  
+    <nav class="md-nav" aria-label="四、重要文件及函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-bootmainc" class="md-nav__link">
+    1. bootmain.c
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-entrys" class="md-nav__link">
+    2. entry.S 汇编代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    内核加载完的物理内存布局
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-mainc-kvmalloc" class="md-nav__link">
+    3. main.c — kvmalloc()函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-setupkvm" class="md-nav__link">
+    4. setupkvm函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-switchkvm" class="md-nav__link">
+    5. switchkvm函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    实验内容
+  </a>
+  
+    <nav class="md-nav" aria-label="实验内容">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ex3-1" class="md-nav__link">
+    Ex3-1: 页表的创建过程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ex3-2-xv6" class="md-nav__link">
+    Ex3-2: 理解xv6中的内存布局
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ex3-3" class="md-nav__link">
+    Ex3-3: 内存分配
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Deoxyriboncleic-acid/OS_lab_wiki/docs/lab3/lab3/Lab3.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="lab3">Lab3：内存管理</h1>
+<p>[toc]</p>
+<p align="right">
+  编辑设计：封裕轩 
+</p>
+
+<p align="right">
+  审核校对：陈  千 
+</p>
+
+<p align="right">2023年12月10日</p>
+
+<h2 id="_1">实验目的</h2>
+<p>本次实验的目的是让学生掌握x86架构下的内存管理的基本概念和原理，并通过阅读xv6-public源代码和相关手册，借助gdb调试技术深入理解通用操作系统中内存管理的实现细节，掌握x86中xv6的内存布局、二级页表、内存分配和回收等重要原理。</p>
+<h2 id="_2">实验环境</h2>
+<p>本次实验基于Lab2基于qemu-system-x86的XV6-public内核作为实验环境，大量使用Lab1的vim编辑器、gcc编译器、gdb调试器和make工具。</p>
+<h2 id="_3">前导知识</h2>
+<p>xv6的内存管理包括内核空间管理和用户空间管理，前者不涉及到进程概念，在物理地址空间中统一放置，后者涉及具体进程，但两者均通过二级页表统一进行管理。在引导 x86 系统启动时，处理器一开始处于实模式，这时只能访问 1MB 范围内的内存。Lab2已经带大家分析了xv6 的汇编代码，将处理器从实模式切换到保护模式。xv6在启动保护模式之后，通过一段汇编入口代码（<code>entry.S</code>）跳转到 C 内核main主函数，这里开始就涉及到内存的页式管理。本次实验主要针对内核内存管理的细节，对于用户内存空间管理基本类似。接下来详细介绍xv6 在启动保护模式后的内核加载过程和对内核内存空间的管理方式的前导知识。</p>
+<h3 id="xv6">一、xv6的内核加载过程</h3>
+<p>在 xv6 启动并进入保护模式后，除了加载内核映像，内核会分配一些内存用于变量、缓冲区、堆栈和页表等结构的存储。这些内核的内存结构（一共四部分）通过二级页表机制映射到物理内存(后续会有实验任务观察这四个内存结构)。内核的加载过程主要包括如下几步：</p>
+<pre><code>1. **MBR（bootblock）加载**：也就是磁盘的第0个扇区，上节课大家观察的`MBR`加载；
+1. **加载内核代码，布局内核环境的加载**：将`kernel`内核镜像文件的第一个扇区加载到一个已知的位置(`0x10000`)，并根据这个扇区的`ELF`头调整重定位(这一步实际上是`entry.S`做的）；
+1. **真正加载内核**：根据`entry.S`读取的内容，将整体的内核1MB读入到`0x100000`位置处；
+1. **加载临时一级页表**；
+1. **跳转至主函数执行内核二级页表创建**：在内核的清除和初始化工作完成后，将控制权转交给内核的 main() 函数中的 C 代码，在这里进行内核的二级页表创建。
+</code></pre>
+<p>​   xv6 使用页表将虚拟地址映射到内核内存空间中的物理地址。内核同进程一样也是使用两级页表结构进行管理，对于内核而言即内核页目录表（kernel page directory）和内核页表（kernel page table）。用户页表实际上是内核页表的派生，在内核页表的基础上，增加本身的内容。但是需要区分的是，内核的页目录页表和用户进程的页目录和页表 <strong>地址</strong> 完全不同，但用户进程的页目录和页表内容会有部分相同（即内核页表内容）。</p>
+<p>​   需要注意：xv6 使用 <code>kalloc()</code> 和 <code>kfree()</code> 函数进行物理内存的分配和释放。当需要分配内存时，<code>kalloc()</code> 函数会查询空闲内存列表，选择物理页，并将这些页从空闲列表中删除。释放内存时，<code>kfree()</code> 函数会将释放的物理页添加到空闲列表中，以便下次分配时使用。</p>
+<p>​    </p>
+<h3 id="xv6_1">二、xv6页表的基本原理</h3>
+<p>在xv6中，页表由软件实现，主要由以下两个部分组成：</p>
+<p>1.内核页表：内核页表维护了内核地址空间的映射关系，它由内核代码在系统启动时建立。内核页表在系统运行时不会改变，并且被所有用户进程共享。</p>
+<p>2.用户页表：每个用户进程都有一个独立的用户页表，用于映射该进程的虚拟地址到物理地址。在进程创建时，xv6会为该进程创建一个新的页表，并将内核页表的映射复制到该页表中。用户进程可通过修改自己的页表来管理自己的地址空间。</p>
+<p>在xv6中，硬件负责将虚拟地址翻译为物理地址，该过程主要由以下几个模块协同完成：</p>
+<p>1.CPU控制器：CPU控制器接收来自CPU的虚拟地址，并将其发送给页表管理单元（MMU）。</p>
+<p>2.MMU：MMU负责控制内存中页表的访问和翻译虚拟地址。MMU包含页表基址寄存器（Page Table Base Register），用于记录当前进程的页表的地址。</p>
+<p>3.页表：页表由内核构建，用于将虚拟地址映射到物理地址。当MMU接收到虚拟地址时，它将使用页表查找对应的物理地址。</p>
+<p>4.物理内存：物理内存存储数据和代码，并接收由MMU翻译后的物理地址。</p>
+<p>总之，xv6的页表实现由软件部分和硬件部分组成，软件部分负责创建和管理页表，硬件部分负责将虚拟地址映射到物理地址。</p>
+<h3 id="_4">三、快表机制</h3>
+<p>在地址转换时一个重要机制即快表硬件，其位于MMU芯片中，通常集成到CPU中。由于快表具有很高的速度，因此在地址翻译过程中尽可能多地使用快表是很重要的。在xv6中，当快表未命中时，需要在做完地址转换后对当前页表项进行更新，若快表被填满，则需要利用某种置换机制清除快表中相关的条目并替换成目标页表项，以便在下一次访问时使用最新的页表数据。这些操作均由硬件机制实现，对操作系统的开发设计人员是透明的，因此xv6-public中xv6内核不涉及到快表的更新操作。</p>
+<h3 id="_5">四、重要文件及函数</h3>
+<p><code>memlayout.h</code>：声明 XV6 内存布局的常量，以及用于将虚拟地址转换为物理地址的宏。</p>
+<p><code>entry.S</code>：在页目录机制创建好之前，在里面创建了第一个临时页表，用于内核C代码 的启动。同时负责跳转到<code>main</code>。很快大家就看到<code>main</code>函数使用<code>kvmalloc</code>切换创建到一个新页表中。</p>
+<h4 id="1-bootmainc">1. bootmain.c</h4>
+<p>书接上回，<code>bootasm.S</code>进入了保护模式，开启了A20线，允许使用大于1MB的内存（实际上是32位），创建了全局内存描述符<code>GDT</code>数组，用于内存的权限控制。</p>
+<p>据此，内核启动的环境已经准备完毕。紧接着，进入了<code>bootmain.c</code>，这段代码加载<code>kernel</code>的<code>ELF</code>到物理内存的<code>0x10000</code>处。通过读取<code>ELF</code>头，获取内核的相关加载信息，将内核的具体环境给准备好。</p>
+<p>再通过<code>ELF</code>读出来，内核需要加载到<code>0x100000</code>处（和上面比多了一个0噢！）。</p>
+<p>运行<code>entry.S</code>处的函数！</p>
+<p>实际上，通过<code>makefile</code>可知，上面所提到的两个代码都被链接成一个文件那就是<code>bootblock</code>，它的大小正好是512字节，通过<code>file</code>命令可知道是<code>MBR</code>格式。上节课加载到<code>MBR</code>处的第0个扇区，就是它。 </p>
+<p><center> <b>以下为Makefile的截取</b> </center></p>
+<pre><code class="language-makefile">xv6.img: bootblock kernel fs.img
+    dd if=/dev/zero of=xv6.img count=10000
+    dd if=bootblock of=xv6.img conv=notrunc # bootblock部分放置到第一个扇区(该部分必须保证自己的size小于512bytes)
+    dd if=kernel of=xv6.img seek=1 conv=notrunc # kernel代码放置到第二个以及以后的扇区
+bootblock: bootasm.S bootmain.c
+    $(CC) $(CFLAGS) -fno-pic -O -nostdinc -I. -c bootmain.c
+    $(CC) $(CFLAGS) -fno-pic -nostdinc -I. -c bootasm.S
+    $(LD) $(LDFLAGS) -N -e start -Ttext 0x7C00 -o bootblock.o bootasm.o bootmain.o
+    $(OBJDUMP) -S bootblock.o &gt; bootblock.asm
+    $(OBJCOPY) -S -O binary -j .text bootblock.o bootblock
+    ./sign.pl bootblock # 检查bootblock的大小，并在最后两个字节处添加标志: 0x55 0xAA，这是启动扇区的标志。
+kernel: $(OBJS) entry.o entryother initcode kernel.ld
+    $(LD) $(LDFLAGS) -T kernel.ld -o kernel entry.o $(OBJS) -b binary initcode entryother
+
+</code></pre>
+<h4 id="2-entrys">2. entry.S 汇编代码</h4>
+<p>在物理内存<code>0x10000c</code>处执行第一条代码，加载页表机制，并且把控制权交给<code>main</code>。</p>
+<p>CR3用于保存页目录的地址，每个进程都拥有一个自己的页目录，当前只有内核在启动，所以只需要维护一个页目录即可。具体页目录的内容在<code>main.c</code>中。</p>
+<p>就由这个页表启动了简单的内核虚拟地址映射关系。</p>
+<h4 id="_6">内核加载完的物理内存布局</h4>
+<pre><code>读取kernel数据到内存0x10000处，读取之后内存的样子如下:
+0x10000(64KB)这个地方的内容只是暂时存放kernel img(elf文件)的hdr内容的，
+根据elf header的内容进一步读取kernel img的内容，实际的内容将会存在在
+1MB地址处，这个1MB地址是在kernel.ld中定义的(AT(0x100000))，这恰好跟
+kernel memlayout吻合起来，见memlayout.h。
+
+                   +-------------------+  4GB                 
+                   |                   |                      
+                   |                   |                      
+                   |                   |                      
+                   |                   |                      
+                   |                   |                      
+                   |                   |                      
+                   |                   |                      
+                   |                   |                      
+                   +-------------------+                      
+                   |                   |                      
+ (main.c)main() -&gt; |      kernel       |                      
+                   |                   |                      
+  0x100000(1MB) -&gt; +-------------------+                      
+                   |                   |                      
+  0x10000(64KB) -&gt; +elf hdr of kern img+    (tmp use. elf header content)                    
+                   |                   |                      
+   0x7c00 + 512 -&gt; |      \x55\xAA     |                      
+                   |                   |                      
+       .gdtdesc -&gt; +-------------------+                      
+                   |                   |                      
+           .gdt -&gt; +-----+-------------+ &lt;- gdtr(GDT Register)
+                   |     |  seg null   |                      
+                   | GDT |  seg code   |                      
+                   |     |  seg data   |                      
+                   +-----+-------------+                      
+                   |                   |                      
+                   |                   |                      
+    bootmain()  -&gt; |                   |                      
+                   |        code       |                      
+                   |                   |                      
+      .start32  -&gt; |                   |                      
+                   |                   |                      
+(0x7c00).start  -&gt; +---------+---------+ &lt;- esp               
+                   |         |         |                      
+                   |         v         |                      
+                   |       stack       |                      
+                   |                   |                      
+                   |                   |                      
+                   +-------------------+  0GB                 
+</code></pre>
+<h4 id="3-mainc-kvmalloc">3. main.c — kvmalloc()函数</h4>
+<p><img alt="截屏2023-12-10 12.06.53" src="../picture/%E6%88%AA%E5%B1%8F2023-12-10%2012.06.53.png" /></p>
+<p><code>kinit1</code>函数主要做的就是第一个页的内存初始化，仅供了解。</p>
+<p><code>kvmalloc()</code>真正实现内核的二级页表结构。</p>
+<p>在这个函数有两步操作：</p>
+<p><img alt="截屏2023-12-09 11.55.35" src="../picture/%E6%88%AA%E5%B1%8F2023-12-09%2011.55.35.png" /></p>
+<p>下面会详细解释这两个函数。</p>
+<h4 id="4-setupkvm">4. setupkvm函数</h4>
+<p>这是一个全局变量数组，用于内核的初始化，一共有四个元素：虚拟内存地址，物理内存起始地址，物理内存结束地址以及访问权限。详细阅读其注释，看看这四个区域各有什么用处。一会我们会按照这个模版来创建真正的内核页表。</p>
+<p><center>页表构成，暂存数据结构</center></p>
+<p><img alt="截屏2023-12-09 12.00.35" src="../picture/%E6%88%AA%E5%B1%8F2023-12-09%2012.00.35.png" /></p>
+<p><img alt="figure2-2" src="../picture/f2-2.png" /></p>
+<p><center>页目录创建</center></p>
+<p><center>(包括页目录指针和4KB页目录)</center></p>
+<p><img alt="截屏2023-12-09 20.50.39" src="../picture/%E6%88%AA%E5%B1%8F2023-12-09%2020.50.39.png" /></p>
+<p><img alt="截屏2023-12-09 20.55.08" src="../picture/%E6%88%AA%E5%B1%8F2023-12-09%2020.55.08.png" /></p>
+<h4 id="5-switchkvm">5. switchkvm函数</h4>
+<p>将cr3内容改为页目录地址。</p>
+<p>至此，内核页表就创建完毕了，其实内核页表非常简单，用户的页表也类似。</p>
+<h3 id="_7">参考资料</h3>
+<ul>
+<li>
+<p>gdb调试</p>
+<ol>
+<li>gdb图形化调试界面：<code>layout src</code> </li>
+<li>跳出当前函数: <code>finish</code></li>
+<li>查看断点：<code>info break</code></li>
+<li>禁用断点：<code>disable 上面查看的断点号（比如1）</code></li>
+<li>继续执行到下一个断点：<code>continue</code></li>
+<li>打印二进制数值： <code>print /t 变量名</code></li>
+<li>单步执行c语句: <code>step</code></li>
+<li>单步执行但不进入函数：<code>next</code></li>
+<li><a href="https://csapp.cs.cmu.edu/3e/docs/gdbnotes-x86-64.pdf">其余未列举的参考本文档</a></li>
+</ol>
+</li>
+<li>
+<p><a href="https://th0ar.gitbooks.io/xv6-chinese/content/index.html">xv6中文文档</a></p>
+</li>
+<li>
+<p><a href="https://pdos.csail.mit.edu/6.828/2012/xv6/book-rev7.pdf">xv6官方原文文档</a></p>
+</li>
+<li>
+<p>部分宏定义<code>mmu.h</code><img alt="截屏2023-12-07 21.09.28" src="../picture/%E6%88%AA%E5%B1%8F2023-12-07%2021.09.28.png" /></p>
+</li>
+</ul>
+<p><code>memlayout.h</code></p>
+<p><img alt="截屏2023-12-07 20.59.38" src="../picture/%E6%88%AA%E5%B1%8F2023-12-07%2020.59.38.png" /></p>
+<p><img alt="截屏2023-12-09 21.16.00" src="../picture/%E6%88%AA%E5%B1%8F2023-12-09%2021.16.00.png" /></p>
+<h2 id="_8">实验内容</h2>
+<h3 id="ex3-1">Ex3-1: 页表的创建过程</h3>
+<p><strong>任务要求：</strong></p>
+<p><img alt="截屏2023-12-09 21.48.10" src="../picture/%E6%88%AA%E5%B1%8F2023-12-09%2021.48.10.png" /></p>
+<p><img alt="截屏2023-12-09 22.01.19" src="../picture/%E6%88%AA%E5%B1%8F2023-12-09%2022.01.19.png" /></p>
+<ol>
+<li>
+<p>结合下图页表结构和宏定义，<strong>详解</strong><code>mappages</code>函数内是如何创建二级结构的，需要结合代码，指出a和last变量分别是什么。</p>
+</li>
+<li>
+<p>以其中第一个映射关系的第一个页表的创建，<code>gdb</code>调试，需要打印各个重要的变量（<code>mappages</code>中的<code>a</code>，<code>last</code>，<code>walkpagedir</code>中的<code>pde</code>，<code>pgtab</code>以及其内容<code>*pde</code>和<code>*pgtab</code>，截图和说明作用。介绍这个例子是如何创建页表的，在当前页创建完毕之后，<code>a</code>和<code>pa</code>变量如何控制剩余页的循环创建？</p>
+<blockquote>
+<p>将断点打到<code>mappages</code>，截图当前的入口参数，看看页表是如何创建的，是否和你上面的理解一样。</p>
+<p><img alt="截屏2023-12-09 22.07.06" src="../picture/%E6%88%AA%E5%B1%8F2023-12-09%2022.07.06.png" /></p>
+<p>虚拟地址是0x80000000，大小为1048576=0x100000</p>
+<p>打印二进制变量： <code>print /t 变量名</code></p>
+<p>另外，需要走进（step）<code>walkpgdir</code>，观察页表是如何创建的。</p>
+<p>返回后的页表指针，是如何填充内容的。</p>
+</blockquote>
+</li>
+<li>
+<p>查看在<code>kalloc.c</code>文件中的<code>kalloc</code>，简述是如何分配一个页的？</p>
+</li>
+<li>
+<p>按照刚才调试的一个页表的创建，画出内核的二级页表结构。（目前只有一个页表）</p>
+</li>
+</ol>
+<p><strong>建议：先gdb拿到mappages的参数，动手计算页目录索引和页索引以及偏移量，再去验证会更易懂。</strong></p>
+<p><strong>关键步骤： CR3寄存器，页目录地址，页表的创建，页表项的添加。</strong></p>
+<pre><code> A virtual address 'la' has a three-part structure as follows:
+
+ +--------10------+-------10-------+---------12----------+
+ | Page Directory |   Page Table   | Offset within Page  |
+ |      Index     |      Index     |                     |
+ +----------------+----------------+---------------------+
+  \--- PDX(va) --/ \--- PTX(va) --/
+</code></pre>
+<blockquote>
+<p>这样两个页表结构的作用：
+在操作系统内核启动的早期阶段，需要建立一个最小的页表结构来启动和配置虚拟内存系统。一级页表是用于建立这个最基本的映射，它是一个简化的页表结构，允许内核在启动阶段进行基本的地址映射。</p>
+<p>一级页表的建立主要目的是为了启动内核的基本运行环境，它可能不包含完整的映射信息，只包含启动所需的最小信息。这样做有助于内核启动过程中使用最少的资源来建立必要的基本内存管理结构，使得在进一步初始化内存管理之前能够正常运行。</p>
+<p>在进入到 <code>main.c</code> 中创建二级页表之后，内核会逐步完善页表结构，包括添加更多的映射信息，以支持更复杂的虚拟内存管理功能。因此，一级页表主要是为了启动阶段的基本内存管理需求而创建的，而后续的二级页表则是为了更全面、更灵活地管理虚拟内存。</p>
+<p>所以，我们可以看见，第一个一级页表只有两个内容，而第二个二级页表有四个内容。</p>
+</blockquote>
+<p><img alt="image-20231207200949250" src="../picture/image-20231207200949250.png" /></p>
+<p><img alt="img" src="../picture/20170716174234079.png" /></p>
+<h3 id="ex3-2-xv6">Ex3-2: 理解xv6中的内存布局</h3>
+<p>在<code>kvmalloc</code>函数之后，内核的虚拟内存映射，二级页表机制已经建立完毕。</p>
+<p><strong>任务要求：</strong></p>
+<ol>
+<li>在<code>qemu</code>中打印<code>kvmalloc</code>函数结束后的系统虚拟内存分布，并 <strong>截图</strong>。</li>
+<li>结合刚才内核二级页表的创建（关注点在初始的那个页表结构体数组），<strong>解释</strong>为什么是这样的？</li>
+</ol>
+<p>提示：在<code>xv6</code>的启动界面，（就是执行过 <code>make qemu-gdb</code>那个界面，按<code>ctrl + A + C</code>），输入<code>info mem</code>，查看当前的内存分布。</p>
+<h3 id="ex3-3">Ex3-3: 内存分配</h3>
+<p>观察用户进程如何在分配页表：</p>
+<ul>
+<li>
+<p><code>growproc</code>函数传入一个n表示要将当前进程的内存空间增长到n字节，或者释放到n字节，取决于传入的n是比当前程序所占的内存空间是大于n还是小于n。增长调用<code>allocuvm</code>，释放调用<code>deallocuvm</code>。</p>
+</li>
+<li>
+<p><code>allocuvm</code>函数传入当前进程的页目录，当前大小，将要扩充后的大小。</p>
+</li>
+</ul>
+<p><strong>任务要求</strong>：</p>
+<ol>
+<li>将断点打到<code>growproc</code> ，<code>allocuvm</code>，<code>kalloc</code>；</li>
+<li>在<code>growproc</code>函数，观察传入<code>allocuvm</code>的参数是多少，各自是什么含义，截图说明；</li>
+</ol>
+<blockquote>
+<p><img alt="截屏2023-12-09 22.56.30" src="../picture/%E6%88%AA%E5%B1%8F2023-12-09%2022.56.30.png" /></p>
+</blockquote>
+<ol>
+<li>简单看一下<code>allocuvm</code>是如何分配新的页面的，简述过程；</li>
+</ol>
+<p>如果想下载我的带注释版本：<code>git clone https://github.com/ohhoo0/my-xv6-public.git</code></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../../../Lab2/Lab2/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              操作系统的启动
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../../../Tools/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A%E6%A8%A1%E6%9D%BF/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              操作系统实验模板
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.top"], "search": "../../../assets/javascripts/workers/search.fe42c31b.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "Missing"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.4ea5477f.min.js"></script>
+      
+    
+  </body>
+</html>

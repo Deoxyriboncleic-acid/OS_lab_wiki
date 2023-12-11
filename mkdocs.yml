@@ -14,6 +14,8 @@ nav:
       vim/Makefile/gcc : Tools/vim gcc Makefile.md
   - 操作系统的启动 :
       操作系统的启动 : Lab2/Lab2.md
+  - xv6内存管理 :
+      LAB3 : lab3/lab3/Lab3.md
   - LAB:
       操作系统实验模板 : Tools/操作系统实验报告模板.md
       
